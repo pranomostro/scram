@@ -9,7 +9,7 @@ to practice some hope again.
 Requirements
 ------------
 
-* [a hope implementation](https://github.com/shaos/hopeless
+* [a hope implementation](https://github.com/shaos/hopeless)
 * make
 
 Installation
