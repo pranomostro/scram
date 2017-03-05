@@ -1,0 +1,22 @@
+scramble input
+==============
+
+scram was inspired by some /r/askreddit comment that stated that
+text is readable of a word is scrambled by its letters except the last
+and the first one. I wrote something to test that, and also in order
+to practice some functional programming again.
+
+Installation
+------------
+
+    make install
+
+Usage
+-----
+
+command | scram
+
+License
+=======
+
+MIT license, more details in ./LICENSE.

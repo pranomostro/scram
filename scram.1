@@ -1,0 +1,36 @@
+.TH SCRAM 1
+.SH NAME
+scram \- scramble words
+
+.SH SYNOPSIS
+scram
+
+.SH DESCRIPTION
+scram scrambles it's input, every word is shuffled after its letters
+except the first and the last one.
+
+.SH EXAMPLES
+.PP
+.fi
+.RS
+$ scram </usr/share/dict/cracklib-small
+.RE
+.fi
+scrambles every word in the dictionary.
+.PP
+.fi
+.RS
+$ curl https://gist.githubusercontent.com/remalhaut/811898a727f018be12d35da4cb94394f/raw/ba2856d4eb15754a1a96b61a4591cedc43f29b91/smog.md | scram
+.RE
+.fi
+scramble a github gist I found.
+
+.SH BUGS
+Does not handle words over 255 characters long, aborts after 300-ish lines.
+
+.SH "SEE ALSO"
+.IR rev(1),
+.IR shuf(1),
+
+.SH AUTHOR
+pranomostro (pranomestro@gmail.com).

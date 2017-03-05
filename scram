@@ -1,0 +1,25 @@
+#!/usr/local/bin/hl -f
+uses system, ctype, list, lists;
+
+dec rnd : num;
+--- rnd <= ord(read "/dev/urandom"@0);
+
+dec shuf : list alpha -> list alpha;
+--- shuf [] <= [];
+--- shuf (e::nil) <= [e];
+--- shuf (l) <= l@(r-1) :: shuf(front(r-1, l)<>after(r, l)) where r==rnd mod length(l)+1;
+
+dec midshuf : list alpha -> list alpha;
+--- midshuf([]) <= [];
+--- midshuf(x::nil) <= [x];
+--- midshuf(x::xs) <= x::shuf(init(xs))<>[last(xs)];
+
+dec wordshuf : list char # list char -> list char;
+--- wordshuf([], t) <= midshuf(t);
+--- wordshuf(x::xs, []) <= if isalpha(x) then wordshuf(xs, [x]) else x::wordshuf(xs, []);
+--- wordshuf(x::xs, t) <= if isalpha(x) then wordshuf(xs, t<>[x]) else midshuf(t)<>[x]<>wordshuf(xs, []);
+
+dec wswrap : list char -> list char;
+--- wswrap(l) <= wordshuf(l, []);
+
+write(map wswrap gets);
