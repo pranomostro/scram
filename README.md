@@ -6,6 +6,12 @@ text is readable of a word is scrambled by its letters except the last
 and the first one. I wrote something to test that, and also in order
 to practice some functional programming again.
 
+Requirements
+------------
+
+* [hopeless](https://github.com/shaos/hopeless
+* make
+
 Installation
 ------------
 
