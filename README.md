@@ -14,7 +14,9 @@ Installation
 Usage
 -----
 
-command | scram
+    command | scram
+
+More info in the manpage.
 
 License
 =======
