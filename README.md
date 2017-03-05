@@ -4,12 +4,12 @@ scramble input
 scram was inspired by some /r/askreddit comment that stated that
 text is readable of a word is scrambled by its letters except the last
 and the first one. I wrote something to test that, and also in order
-to practice some functional programming again.
+to practice some hope again.
 
 Requirements
 ------------
 
-* [hopeless](https://github.com/shaos/hopeless
+* [a hope implementation](https://github.com/shaos/hopeless
 * make
 
 Installation
