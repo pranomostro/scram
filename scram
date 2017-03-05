@@ -1,8 +1,11 @@
 #!/usr/local/bin/hl -f
 uses system, ctype, list, lists;
 
+dec rl : list char;
+--- rl <= read "/dev/urandom";
+
 dec rnd : num;
---- rnd <= ord(read "/dev/urandom"@0);
+--- rnd <= ord(rl@0);
 
 dec shuf : list alpha -> list alpha;
 --- shuf [] <= [];
