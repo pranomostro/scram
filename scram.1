@@ -26,7 +26,12 @@ $ curl https://gist.githubusercontent.com/remalhaut/811898a727f018be12d35da4cb94
 scramble a github gist I found.
 
 .SH BUGS
-Does not handle words over 255 characters long, aborts after 300-ish lines.
+Because hope does not close streams when it has ended reading them,
+and /dev/urandom is opened every time a word is shuffled, shuf exceeds
+the limit of streams fairly quickly and scram aborts.
+.br
+Possible solution: Fix the hope interpreter in this regard, write a different
+random number generator.
 
 .SH "SEE ALSO"
 .IR rev(1),

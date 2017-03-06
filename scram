@@ -1,16 +1,24 @@
 #!/usr/local/bin/hl -f
-uses system, ctype, list, lists;
+uses system, ctype, list, lists, arith;
 
-dec rl : list char;
---- rl <= read "/dev/urandom";
+dec le_num_asm : list num # num -> list num;
+--- le_num_asm(nil, n) <= [];
+--- le_num_asm(x::xs, n) <= (255^n*x)::le_num_asm(xs, n-1);
 
-dec rnd : num;
---- rnd <= ord(rl@0);
+dec le_int_from_bytes : list num -> num;
+--- le_int_from_bytes(l) <= sum(le_num_asm(l, length(l)-1));
+
+dec rnd_bytes : num -> list num;
+--- rnd_bytes n <= map ord (front(n, (read "/dev/urandom")));
+
+dec rnd_num : num -> num;
+--- rnd_num(l) <= le_int_from_bytes(rnd_bytes(u)) mod (l+1)
+		  where u==ceil(log(l+1)/log(256));
 
 dec shuf : list alpha -> list alpha;
 --- shuf [] <= [];
 --- shuf (e::nil) <= [e];
---- shuf (l) <= l@(r-1) :: shuf(front(r-1, l)<>after(r, l)) where r==rnd mod length(l)+1;
+--- shuf (l) <= l@r :: shuf(front(r, l)<>after(r+1, l)) where r==rnd_num(length(l)-1);
 
 dec midshuf : list alpha -> list alpha;
 --- midshuf([]) <= [];
