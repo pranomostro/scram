@@ -6,6 +6,8 @@ the first and last letter stay in their position. A word is a
 list of alphabetic characters (hope does not support unicode
 at the moment).
 
+More information can be found in the manpage.
+
 Requirements
 ------------
 
@@ -15,14 +17,7 @@ Requirements
 Installation
 ------------
 
-    make install
-
-Usage
------
-
-    command | scram
-
-More info in the manpage.
+	make install
 
 License
 =======
