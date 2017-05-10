@@ -1,3 +1,4 @@
 PREFIX=/usr/local
 
-TARGET=scram
+BIN=scram
+MAN=$(BIN:=.1)

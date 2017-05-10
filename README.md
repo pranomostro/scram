@@ -1,10 +1,10 @@
 scramble input
 ==============
 
-scram was inspired by some /r/askreddit comment that stated that
-text is readable of a word is scrambled by its letters except the last
-and the first one. I wrote something to test that, and also in order
-to practice some hope again.
+scram shuffles the letters in the words of its input, so that
+the first and last letter stay in their position. A word is a
+list of alphabetic characters (hope does not support unicode
+at the moment).
 
 Requirements
 ------------

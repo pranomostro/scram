@@ -7,7 +7,8 @@ scram
 
 .SH DESCRIPTION
 scram scrambles it's input, every word is shuffled after its letters
-except the first and the last one.
+except the first and the last one. A word is a list of alphabetic
+characters.
 
 .SH EXAMPLES
 .PP
@@ -32,10 +33,12 @@ the limit of streams fairly quickly and scram aborts.
 .br
 Possible solution: Fix the hope interpreter in this regard, write a different
 random number generator.
+.P
+scram only supports ASCII.
 
 .SH "SEE ALSO"
 .IR rev(1),
-.IR shuf(1),
+.IR shuf(1)
 
 .SH AUTHOR
 pranomostro (pranomestro@gmail.com).
