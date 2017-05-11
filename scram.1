@@ -1,44 +1,46 @@
-.TH SCRAM 1
-.SH NAME
-scram \- scramble words
+.Dd May 11, 2017
+.Dt SCRAM 1
+.Os
 
-.SH SYNOPSIS
-scram
+.Sh NAME
+.Nm scram
+.Nd scramble words
 
-.SH DESCRIPTION
-scram scrambles it's input, every word is shuffled after its letters
-except the first and the last one. A word is a list of alphabetic
-characters.
+.Sh SYNOPSIS
+.Nm
 
-.SH EXAMPLES
-.PP
-.fi
-.RS
-$ scram </usr/share/dict/cracklib-small
-.RE
-.fi
-scrambles every word in the dictionary.
-.PP
-.fi
-.RS
-$ curl https://gist.githubusercontent.com/remalhaut/811898a727f018be12d35da4cb94394f/raw/ba2856d4eb15754a1a96b61a4591cedc43f29b91/smog.md | scram
-.RE
-.fi
-scramble a github gist I found.
+.Sh DESCRIPTION
+.Nm
+scrambles its input, every word is shuffled except the first and last
+letter. A word is a list of alphabetic characters. Any arguments are
+ignored.
 
-.SH BUGS
-Because hope does not close streams when it has ended reading them,
-and /dev/urandom is opened every time a word is shuffled, shuf exceeds
-the limit of streams fairly quickly and scram aborts.
-.br
-Possible solution: Fix the hope interpreter in this regard, write a different
-random number generator.
-.P
-scram only supports ASCII.
+.Sh EXAMPLES
+Scramble every word in the dictionary:
+.Pp
+.Dl $ grep -v '[^a-z]' </usr/share/dict/cracklib-small | shuf | scram
+.Dl fdnier
+.Dl coeomnmr
+.Dl yhtsleonufus
+.Dl ictnodrus
+.Dl pnirotut
+.Dl ...
 
-.SH "SEE ALSO"
-.IR rev(1),
-.IR shuf(1)
+.Sh EXIT STATUS
+.Ex -std
 
-.SH AUTHOR
-pranomostro (pranomestro@gmail.com)
+.Sh BUGS
+.Nm
+only supports ASCII.
+.Pp
+Because hope does not close streams after reading them, and /dev/urandom
+is opened every time a word is shuffled, shuf exceeds the limit of
+streams fairly quickly and scram aborts.
+
+.Sh SEE ALSO
+.Xr grep 1 ,
+.Xr rev 1 ,
+.Xr shuf 1 .
+
+.Sh AUTHORS
+.An pranomostro Aq Mt pranomestro@gmail.com
