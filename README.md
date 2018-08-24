@@ -1,4 +1,4 @@
-scramble input
+Scramble input
 ==============
 
 scram shuffles the letters in the words of its input, so that
